@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 function App() {
     return ( 
         <Wrapper>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/> 
             <NavigationBar />
             <MainComponent />
         </Wrapper>

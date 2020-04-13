@@ -17,6 +17,7 @@ left:0;
 /* background-image: linear-gradient(-90deg, red, yellow);  */
 background-image: linear-gradient(-180deg, #A377FD 0%,#7EA8F5 100%);
 overflow: auto;
+overflow-y:visible;
 transition: width 0.5s;
 
 @media (min-width:600px) {
@@ -29,9 +30,8 @@ const BackButton = styled.img`
     :hover {
         cursor:pointer;
     }
-    transform:rotate(${props => props.isCollapsed?"180deg":"0deg"});
-
-    transition: transform 0.5s;
+    transform:rotate(${props => props.isCollapsed?"180deg":"0deg"})
+    transition: transform 0.3s;
 `;
 
 class NavigationBar extends Component {

@@ -9,7 +9,8 @@ const Wrapper = styled.div`
     margin-top:0;
     transition:transform 0.2s;
     :hover {
-        transform:scale(1.2);
+        transform:scale(1.1);
+        cursor:pointer; 
     }
     @media (min-width: 600px) {
         margin-top:10%;
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 
 `
 const NavTextarea = styled.div`
-    @media (max-width:600px) {
+    @media (max-width:780px) {
         visibility:${props=>props.isSelected?"hidden":"visible"};
     }
     @media (min-width:780px){
@@ -30,7 +31,7 @@ const NavTextarea = styled.div`
     max-width:230px;
     margin:auto;
     background-color:#fff;
-    position:relative;
+    position:absolute;
     top:7px;
     left:6px;
 `
@@ -42,31 +43,31 @@ const NavTitle = styled.h3`
     top:80%;
     left:5px;
     letter-spacing: 1px;
-    text-align:left;
     text-transform: uppercase;
     // display:inline-block;
     @media (min-width: 780px) {
         top:40%;
-        font-size:16px;
-        text-align:center;
-        left:${props=> props.isSelected?"1px":"auto"};
+        font-size:14px;
+        left:${props=> props.isSelected?"30px":"93px"};
         letter-spacing: 2px;
-        transition: text-align 1s;
+        transition:left 0.2s;
     }
 `
 const NavSubtext = styled.h6`
     font-size:13px;
     margin:auto;
     position:relative;
-    text-align:center;
     // font-weight: bold;
     text-transform:capitalize;
     display:none;
     top:45%;
     color:#9C9D9E;
     letter-spacing:1px;
+    position:relative;
     @media (min-width: 780px) {
-        display:block;    
+        display:block;
+        left:${props=> props.isSelected?"30px":"93px"};    
+        transition:left 0.2s;
     }
 `
 
@@ -76,7 +77,7 @@ const Image = styled.img`
     position: absolute;
     width:85px;
     z-index: 10;
-    transition: left 1s;
+    transition: left 0.2s;
     @media (min-width:780px){
         width:120px;
     }
@@ -98,7 +99,6 @@ class NavItems extends Component {
         this.setState(state=>({
             isSelected:!state.isSelected
         }));
-        console.log(this.state.isSelected);
     }
     render() 
     {
@@ -108,7 +108,7 @@ class NavItems extends Component {
                 src={this.props.img} alt={this.props.title} />
             <NavTextarea isSelected={this.state.isSelected}>
                 <NavTitle isSelected={this.state.isSelected}>{this.props.title}</NavTitle>
-                <NavSubtext>{this.props.subtext}</NavSubtext>
+                <NavSubtext isSelected={this.state.isSelected}>{this.props.subtext}</NavSubtext>
             </NavTextarea>
         </Wrapper>
     );

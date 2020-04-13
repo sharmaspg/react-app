@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import plus from '../../images/plus.png';
 import "react-toggle/style.css";
-import Toggle from "react-toggle";
 import styled from 'styled-components';
-
+import Switch from 'react-switch';
 const Header1 = styled.div`
     padding-top:20px;
     width: 85%;
@@ -19,7 +18,7 @@ const Title = styled.h1`
     font-size: 26px;
     letter-spacing:3px;
     text-transform: uppercase;
-    padding: 0 10px;
+    // padding: 0 10px;
     display: inline-block;
     font-weight:bold;
 `;
@@ -39,7 +38,7 @@ const Title2 = styled.h3`
     font-size: 18px;
     letter-spacing:2px;
     text-transform: uppercase;
-    padding: 0 10px;
+    // padding: 0 10px;
     font-weight:bold;
     display: inline-block;
 `
@@ -74,13 +73,17 @@ class Devices extends Component{
                 <Header1>
                     <Title2>Bed Lamp</Title2>
                     <ToggleRight>
-                    <Toggle
-                    className='custom-classname'
-                    onChange={this.handleLightChange}
-                    icons={{
-                        checked: null,
-                        unchecked: null,
-                      }}></Toggle>
+                    <Switch 
+                    onChange={this.handleLightChange} 
+                    checked={this.state.isLightOn} 
+                    onColor="#000"
+                    offColor="#000"
+                    uncheckedIcon={false}
+                    checkedIcon={false}
+                    handleDiameter={15}
+                    width ={45}
+                    height={25}
+                    />
                     </ToggleRight>
                 </Header1>
                 

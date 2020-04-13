@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import morning from '../../images/morning-wh.png';
+// import morningWhite from '../../images/morning-wh.png';
+import morning from '../../images/morning-dk.png';
 import tick from '../../images/tick.png';
 import day from '../../images/day-dk.png';
 import night from '../../images/night-dk.png';
@@ -21,7 +22,7 @@ const HorizontalLine = styled.h2`
 `
 const SpanText = styled.span`
     background-color: #ffffff;
-    padding: 0 10px; 
+    padding: 0 10px 0px 5px ; 
     font-size: 15px;
     font-weight: bold;
     color:#CFAAFF;
@@ -35,11 +36,12 @@ const ModesWrapper = styled.div`
 const RowWrapper = styled.div`
     display:grid;
     grid-template-columns: 0.5fr 6fr 4fr 0.1fr;
+    // padding:2px;
+    border-radius:5px;
     transition: transform .2s;
-    // :hover {
-    //     background-image:linear-gradient(90deg, #A377FD 0%,#7EA8F5 100%);
-    //     color:white; 
-    // }
+    :hover {
+        cursor:pointer; 
+    }
 `
 const IconColumn = styled.div`
     // grid-column: 1/2;
@@ -76,45 +78,51 @@ const backgroundStyle = {
 
 }
 
+const modes = ["morning","day","night"]
 
 
 class Mode extends Component {
     constructor(props){
         super(props);
-        this.state = {backgroundColor: "#fff"}
-        // this.ModeSelected = this.ModeSelected.bind(this);
+        this.state = {selectedMode: "morning"}
+        this.ModeSelected = this.ModeSelected.bind(this);
+        this.selectMode = this.selectMode.bind(this);
     }
 
-    // ModeSelected(e){
-        // e.target.style.backgroundImage=
-        // "linear-gradient(90deg, #A377FD 0%,#7EA8F5 100%)";
-        // e.target.style.color="#fff";
-    // }
+    ModeSelected(e){
+        this.setState({
+            selectedMode:e.currentTarget.id
+        });
+    }
+
+    selectMode(currentMode){
+        if (currentMode === this.state.selectedMode){return backgroundStyle}
+    }
 
     render(){
         return (
             <Wrapper>
                 <HorizontalLine><SpanText>Modes</SpanText></HorizontalLine>
                 <ModesWrapper>
-                    <RowWrapper  onClick={this.ModeSelected} style={backgroundStyle}>
+                    <RowWrapper  id="morning" onClick={this.ModeSelected} style={this.selectMode(modes[0])}>
                         <IconColumn><ImagePosition src = {morning} /></IconColumn>
                         <TextColumn>Morning</TextColumn>
                         <PercentText>50%</PercentText>
-                        <IconColumn><ImagePosition src = {whiteTick} /></IconColumn>
+                        <IconColumn><ImagePosition src = {this.state.selectedMode===modes[0]?whiteTick:tick}/></IconColumn>
                     </RowWrapper>
                     
-                    <RowWrapper onClick={this.ModeSelected}>
+                    <RowWrapper id="day" onClick={this.ModeSelected} style={this.selectMode(modes[1])}>
                         <IconColumn><ImagePosition src = {day} /></IconColumn>
                         <TextColumn>day</TextColumn>
                         <PercentText>30%</PercentText>
-                        <IconColumn><ImagePosition src = {tick} /></IconColumn>
+                        <IconColumn><ImagePosition src = {this.state.selectedMode===modes[1]?whiteTick:tick} /></IconColumn>
                     </RowWrapper>
                     
-                    <RowWrapper onClick={this.ModeSelected}>
+                    <RowWrapper id="night" onClick={this.ModeSelected} style={this.selectMode(modes[2])}>
                         <IconColumn><ImagePosition src = {night} /></IconColumn>
                         <TextColumn>Night</TextColumn>
                         <PercentText>0%</PercentText>
-                        <IconColumn><ImagePosition src = {tick} /></IconColumn>                        
+                        <IconColumn><ImagePosition src = {this.state.selectedMode===modes[2]?whiteTick:tick} /></IconColumn>                        
                     </RowWrapper>
                 </ModesWrapper>
 
