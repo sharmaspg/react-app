@@ -36,10 +36,10 @@ const RowWrapper = styled.div`
     display:grid;
     grid-template-columns: 0.5fr 6fr 4fr 0.1fr;
     transition: transform .2s;
-    :hover {
-        background-image:linear-gradient(90deg, #A377FD 0%,#7EA8F5 100%);
-        color:white; 
-    }
+    // :hover {
+    //     background-image:linear-gradient(90deg, #A377FD 0%,#7EA8F5 100%);
+    //     color:white; 
+    // }
 `
 const IconColumn = styled.div`
     // grid-column: 1/2;
@@ -82,14 +82,14 @@ class Mode extends Component {
     constructor(props){
         super(props);
         this.state = {backgroundColor: "#fff"}
-        this.ModeSelected = this.ModeSelected.bind(this);
+        // this.ModeSelected = this.ModeSelected.bind(this);
     }
 
-    ModeSelected(e){
-        e.target.style.backgroundImage=
-        "linear-gradient(90deg, #A377FD 0%,#7EA8F5 100%)";
-        e.target.style.color="#fff";
-    }
+    // ModeSelected(e){
+        // e.target.style.backgroundImage=
+        // "linear-gradient(90deg, #A377FD 0%,#7EA8F5 100%)";
+        // e.target.style.color="#fff";
+    // }
 
     render(){
         return (
