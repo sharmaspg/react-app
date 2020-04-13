@@ -3,6 +3,7 @@ import plus from '../../images/plus.png';
 import "react-toggle/style.css";
 import styled from 'styled-components';
 import Switch from 'react-switch';
+
 const Header1 = styled.div`
     padding-top:20px;
     width: 85%;
