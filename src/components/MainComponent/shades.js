@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import tick from '../../images/tick-wh.png';
+
 const Wrapper = styled.div`
     padding:20px;
     width: 90%;
-    // border: 1px solid  black;
-    // height: (100/4)vh;
     text-align: left;
     margin: auto;
-    // margin-top: 10px;
     transition: all 0.3s ease;
 `
 const HorizontalLine = styled.h2`
@@ -56,6 +54,7 @@ const Shade =styled.div`
     background-color:${props => props.backgroundColor|| '#000000'};
     :hover {
         transform:scale(1.5);
+        cursor:pointer;
     }
 `
 
@@ -66,8 +65,6 @@ const TickImage = styled.img`
 `
 
 function showTick(colorString,props) {
-    console.log(colorString);
-    console.log(props.selectedColor);
     if (props.selectedColor===colorString) 
     { return <TickImage src= {tick} />}
     return null;  

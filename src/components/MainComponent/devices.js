@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import plus from '../../images/plus.png';
-import "react-toggle/style.css";
 import styled from 'styled-components';
 import Switch from 'react-switch';
 
 const Header1 = styled.div`
     padding-top:20px;
     width: 85%;
-    // border: 1px solid  black;
-    // height: (100/4)vh;
     text-align: left;
     margin: auto;
     margin-top: 10px;
 
 `
 const Title = styled.h1`
-//   color: palevioletred;
     font-size: 26px;
     letter-spacing:3px;
     text-transform: uppercase;
@@ -30,6 +26,10 @@ const PlusBackground = styled.div`
     height:30px;
     display: inline-block;
     float:right;
+    :hover {
+        transform:scale(1.3);
+    }
+    transition:transform 0.2s;
 `
 const Img = styled.img`
     position: absolute;
@@ -44,8 +44,6 @@ const Title2 = styled.h3`
     display: inline-block;
 `
 const ToggleRight = styled.div`
-    // width: 30px;
-    // height:30px;
     display: inline-block;
     float:right;
     `

@@ -52,7 +52,6 @@ const NavTitle = styled.h3`
     left:5px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    // display:inline-block;
     @media (min-width: 1200px) {
         top:40%;
         font-size:14px;
@@ -110,7 +109,6 @@ class NavItems extends Component {
     }
 
     selectedElement = (e) => {
-        // e.stopPropogation();
         this.setState(state=>({
             isSelected:!state.isSelected
         }));

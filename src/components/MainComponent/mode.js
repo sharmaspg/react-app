@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-// import morningWhite from '../../images/morning-wh.png';
 import morning from '../../images/morning-dk.png';
 import tick from '../../images/tick.png';
 import day from '../../images/day-dk.png';
@@ -36,7 +35,6 @@ const ModesWrapper = styled.div`
 const RowWrapper = styled.div`
     display:grid;
     grid-template-columns: 0.5fr 6fr 4fr 0.1fr;
-    // padding:2px;
     border-radius:5px;
     transition: transform .2s;
     :hover {
@@ -44,17 +42,12 @@ const RowWrapper = styled.div`
     }
 `
 const IconColumn = styled.div`
-    // grid-column: 1/2;
-    // border: 1px solid black;
-    // background-color: #000;
     width:30px;
     height:30px;
 `
 const TextColumn = styled.h6`
-    // grid-column: 2/6;
     font-size: 16px;
     padding:3px;
-    // border: 1px solid black;
     text-transform: capitalize;
 `
 
@@ -104,21 +97,24 @@ class Mode extends Component {
             <Wrapper>
                 <HorizontalLine><SpanText>Modes</SpanText></HorizontalLine>
                 <ModesWrapper>
-                    <RowWrapper  id="morning" onClick={this.ModeSelected} style={this.selectMode(modes[0])}>
+                    <RowWrapper  id={modes[0]} onClick={this.ModeSelected} style={this.selectMode(modes[0])}>
                         <IconColumn><ImagePosition src = {morning} /></IconColumn>
                         <TextColumn>Morning</TextColumn>
                         <PercentText>50%</PercentText>
                         <IconColumn><ImagePosition src = {this.state.selectedMode===modes[0]?whiteTick:tick}/></IconColumn>
                     </RowWrapper>
                     
-                    <RowWrapper id="day" onClick={this.ModeSelected} style={this.selectMode(modes[1])}>
+                    <RowWrapper id={modes[1]} 
+                    onClick={this.ModeSelected} 
+                    style={this.selectMode(modes[1])}>
                         <IconColumn><ImagePosition src = {day} /></IconColumn>
                         <TextColumn>day</TextColumn>
                         <PercentText>30%</PercentText>
                         <IconColumn><ImagePosition src = {this.state.selectedMode===modes[1]?whiteTick:tick} /></IconColumn>
                     </RowWrapper>
                     
-                    <RowWrapper id="night" onClick={this.ModeSelected} style={this.selectMode(modes[2])}>
+                    <RowWrapper id={modes[2]} 
+                    onClick={this.ModeSelected} style={this.selectMode(modes[2])}>
                         <IconColumn><ImagePosition src = {night} /></IconColumn>
                         <TextColumn>Night</TextColumn>
                         <PercentText>0%</PercentText>

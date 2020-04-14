@@ -4,19 +4,17 @@ import Roundy from 'roundy';
 
 const Wrapper = styled.div`
     padding:20px;
+    padding-top:0px;
     width: 90%;
-    // border: 1px solid  black;
-    // height: (100/4)vh;
     text-align: left;
     margin: auto;
-    // margin-top: 10px;
 `
 const HorizontalLine = styled.h2`
     width:100%;
     text-transform: uppercase;
     border-bottom: 2px solid #CFAAFF; 
-   line-height: 0.1em;
-   margin: 10px 0 20px; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
 `
 const SpanText = styled.span`
     background-color: #ffffff;
@@ -28,10 +26,11 @@ const SpanText = styled.span`
 
 const BoundingDiv = styled.div`
     width: 200px;
-    height:150px;
+    height:125px;
     // border: 1px solid black;
     position:absolute;
     margin-top:15px;
+    overflow:hidden;
 
 `
 
@@ -66,8 +65,9 @@ class Intensity extends Component {
                     color="#8245E6"
                     strokeWidth={30}
                     handleSize={100}
+                    thumbSize={3}
                     onChange={value => this.setState({value})}
-                    overrideStyle={`color:#ffffff`}
+                    overrideStyle={`background-color:#fff;`}
                 />
                 <DisplayValue>{this.state.value}</DisplayValue>
                 </BoundingDiv>

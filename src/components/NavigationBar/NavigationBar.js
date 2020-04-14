@@ -10,22 +10,17 @@ import termostat from '../../images/thermostat.png';
 
 const SidebarBackground = styled.div`
 width: ${props =>props.isCollapsed?"13vw":"30vw"};
-// background-color:#DCDCDC;
-// position:absolute;
+transition: width 0.5s;
 `;
 const SidebarNav = styled.div`
 width:100%;
 height: 100vh;
-// position:absolute;
 max-width: 400px;
 top:0;
 left:0;
-/* background-image: linear-gradient(-90deg, red, yellow);  */
 background-image: linear-gradient(-180deg, #A377FD 0%,#7EA8F5 100%);
-// overflow: auto;
-overflow-x:visible;
+// overflow-x:visible;
 overflow-y:scroll;
-transition: width 0.5s;
 @media (min-width:650px) {
     width:80%;
 }
