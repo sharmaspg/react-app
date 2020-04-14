@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import SemiCircleProgressBar from "react-progressbar-semicircle";
+import Roundy from 'roundy';
 
 const Wrapper = styled.div`
     padding:20px;
@@ -28,14 +28,31 @@ const SpanText = styled.span`
 
 const BoundingDiv = styled.div`
     width: 200px;
-    height:100px;
+    height:150px;
     // border: 1px solid black;
     position:absolute;
+    margin-top:15px;
 
 `
 
-class Intensity extends Component {
+const DisplayValue = styled.p`
+    font-size:16px;
+    position:absolute;
+    top:78px;
+    left:85px;
+    font-weight:bold;
+`
 
+class Intensity extends Component {
+    constructor() {
+        super();
+        // this.onValChange = this.onValChange.bind(this);
+        // this.changeStateValue = this.changeStateValue.bind(this);
+    
+        this.state = {
+          value: 45
+        };
+      }
     render(){
         return (
             <Wrapper>
@@ -43,8 +60,18 @@ class Intensity extends Component {
                     <SpanText>Intensity</SpanText>
                 </HorizontalLine>
                 <BoundingDiv>
-                <SemiCircleProgressBar percentage={55}  stroke="#8245E6" showPercentValue/>
+                <Roundy
+                    arcSize={180}
+                    value={this.state.value}
+                    color="#8245E6"
+                    strokeWidth={30}
+                    handleSize={100}
+                    onChange={value => this.setState({value})}
+                    overrideStyle={`color:#ffffff`}
+                />
+                <DisplayValue>{this.state.value}</DisplayValue>
                 </BoundingDiv>
+                
             </Wrapper>
         );
 
